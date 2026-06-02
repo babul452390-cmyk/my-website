@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>নিকাহনামা | ইসলামিক ম্যাট্রিমনি বাংলাদেশ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --warm-white: #fffdf8;
+    --gold: #c8963e;
+    --gold-light: #e6b96a;
+    --gold-pale: #f5e6c8;
+    --deep-green: #1a3a2e;
+    --mid-green: #2d5c46;
+    --soft-green: #4a7c62;
+    --text-dark: #1c1c1c;
+    --text-mid: #4a4a4a;
+    --text-light: #888;
+    --border: #e8dcc8;
+    --shadow: rgba(26,58,46,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans Bengali', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,246,236,0.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 24px var(--shadow); }
+
+  .logo {
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+  }
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--deep-green), var(--soft-green));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--gold);
+  }
+  .logo-text {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--deep-green);
+    line-height: 1.1;
+  }
+  .logo-sub {
+    font-size: 0.6rem; color: var(--gold);
+    font-weight: 400; display: block;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 0.9rem; font-weight: 500;
+    transition: color .2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+    transform: scaleX(0); transition: transform .2s;
+  }
+  .nav-links a:hover { color: var(--deep-green); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-btn {
+    background: var(--deep-green); color: var(--gold-pale) !important;
+    padding: 9px 22px !important; border-radius: 8px;
+    font-size: 0.88rem !important; font-weight: 600 !important;
+    transition: background .2s, transform .15s !important;
+  }
+  .nav-btn::after { display: none !important; }
+  .nav-btn:hover { background: var(--mid-green) !important; transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--cream);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative;
+    padding: 100px 5% 60px;
+    overflow: hidden;
+  }
+
+  /* decorative geometric pattern */
+  .hero-pattern {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,150,62,0.08) 0%, transparent 70%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c8963e' stroke-width='0.4' opacity='0.18'%3E%3Cpolygon points='30,5 55,17.5 55,42.5 30,55 5,42.5 5,17.5'/%3E%3Cpolygon points='30,14 47,23.5 47,42.5 30,52 13,42.5 13,23.5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: auto, 60px 60px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,150,62,0.1); border: 1px solid rgba(200,150,62,0.3);
+    color: var(--gold); border-radius: 999px;
+    padding: 6px 16px; font-size: 0.8rem; font-weight: 600;
+    margin-bottom: 28px; position: relative; z-index: 1;
+    animation: fadeUp .6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 700; line-height: 1.25;
+    color: var(--deep-green);
+    text-align: center;
+    max-width: 700px;
+    position: relative; z-index: 1;
+    animation: fadeUp .7s .1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+  }
+
+  .hero-hadith {
+    margin: 24px 0 40px;
+    text-align: center;
+    max-width: 560px;
+    color: var(--text-mid);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    position: relative; z-index: 1;
+    animation: fadeUp .7s .2s ease both;
+    padding: 16px 24px;
+    background: rgba(255,255,255,0.7);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+  }
+  .hero-hadith cite { display: block; font-size: 0.78rem; color: var(--gold); margin-top: 6px; font-style: normal; }
+
+  /* ─── SEARCH CARD ─── */
+  .search-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 48px var(--shadow), 0 1px 0 var(--border);
+    padding: 32px 36px;
+    max-width: 680px; width: 100%;
+    position: relative; z-index: 1;
+    animation: fadeUp .8s .3s ease both;
+  }
+
+  .search-card h3 {
+    font-size: 1rem; color: var(--deep-green);
+    font-weight: 600; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .search-card h3::before {
+    content: ''; display: inline-block;
+    width: 4px; height: 18px;
+    background: var(--gold); border-radius: 4px;
+  }
+
+  .filter-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px; margin-bottom: 18px;
+  }
+
+  .filter-group label {
+    display: block; font-size: 0.72rem;
+    color: var(--text-light); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .filter-group select,
+  .filter-group input {
+    width: 100%; padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px; font-size: 0.88rem;
+    color: var(--text-dark);
+    background: var(--cream);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    transition: border-color .2s, box-shadow .2s;
+    appearance: none;
+  }
+  .filter-group select:focus,
+  .filter-group input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(200,150,62,0.15);
+  }
+
+  .btn-search {
+    width: 100%; padding: 14px;
+    background: linear-gradient(135deg, var(--deep-green), var(--mid-green));
+    color: white; border: none; border-radius: 12px;
+    font-size: 1rem; font-weight: 600; cursor: pointer;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 16px rgba(26,58,46,0.35);
+  }
+  .btn-search:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,58,46,0.45);
+  }
+  .btn-search svg { width: 18px; height: 18px; }
+
+  /* ─── STATS ─── */
+  .stats {
+    background: var(--deep-green);
+    padding: 60px 5%;
+  }
+  .stats-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .stat-item {
+    text-align: center; padding: 32px 20px;
+    position: relative;
+  }
+  .stat-item:not(:last-child)::after {
+    content: ''; position: absolute;
+    right: 0; top: 25%; bottom: 25%;
+    width: 1px; background: rgba(255,255,255,0.1);
+  }
+  .stat-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(200,150,62,0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px; font-size: 22px;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--gold-light);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.82rem; color: rgba(255,255,255,0.65);
+    margin-top: 4px; display: block;
+    font-weight: 400;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .section {
+    padding: 90px 5%;
+  }
+  .section-header {
+    text-align: center; margin-bottom: 56px;
+  }
+  .section-tag {
+    display: inline-block;
+    background: var(--gold-pale); color: var(--gold);
+    border-radius: 999px; padding: 5px 16px;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700; color: var(--deep-green);
+    line-height: 1.3;
+  }
+  .section-sub {
+    color: var(--text-mid); margin-top: 10px;
+    font-size: 0.95rem; line-height: 1.7;
+  }
+
+  .steps-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; position: relative;
+  }
+  .steps-grid::before {
+    content: '';
+    position: absolute; top: 60px; left: 12.5%; right: 12.5%;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold-pale), var(--gold), var(--gold-pale));
+    z-index: 0;
+  }
+
+  .step {
+    text-align: center; padding: 0 20px;
+    position: relative; z-index: 1;
+  }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: white; border: 2.5px solid var(--gold);
+    color: var(--gold); font-size: 1.1rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 16px rgba(200,150,62,0.2);
+    font-family: 'Playfair Display', serif;
+  }
+  .step-icon {
+    font-size: 2rem; margin-bottom: 14px; display: block;
+  }
+  .step h4 {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 1rem; font-weight: 700;
+    color: var(--deep-green); margin-bottom: 8px;
+  }
+  .step p {
+    font-size: 0.83rem; color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ─── FEATURES ─── */
+  .features-bg {
+    background: var(--cream);
+  }
+  .features-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .feature-card {
+    background: white; border-radius: 16px;
+    padding: 32px 28px;
+    border: 1px solid var(--border);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px var(--shadow);
+  }
+  .feature-card:first-child {
+    background: var(--deep-green); border-color: transparent;
+    grid-row: span 2;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    min-height: 280px;
+    position: relative; overflow: hidden;
+  }
+  .feature-card:first-child::before {
+    content: '☪'; position: absolute;
+    top: -10px; right: -10px;
+    font-size: 120px; opacity: 0.06; color: white;
+  }
+  .feature-card:first-child .feat-icon { color: var(--gold-light); }
+  .feature-card:first-child h4 { color: white; }
+  .feature-card:first-child p { color: rgba(255,255,255,0.65); }
+
+  .feat-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+  .feature-card h4 {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--deep-green); margin-bottom: 8px;
+  }
+  .feature-card p {
+    font-size: 0.85rem; color: var(--text-mid); line-height: 1.7;
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    text-align: center;
+    padding: 80px 5%;
+    background: linear-gradient(135deg, var(--deep-green) 0%, #0f2a20 100%);
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='35' fill='none' stroke='%23c8963e' stroke-width='0.4' opacity='0.12'/%3E%3Ccircle cx='40' cy='40' r='20' fill='none' stroke='%23c8963e' stroke-width='0.4' opacity='0.12'/%3E%3C/svg%3E") center/80px;
+  }
+  .cta-section h2 {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    color: white; margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .cta-section p {
+    color: rgba(255,255,255,0.65); font-size: 1rem;
+    max-width: 480px; margin: 0 auto 36px; line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+  .cta-btns {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--deep-green);
+    padding: 14px 36px; border-radius: 12px;
+    font-size: 1rem; font-weight: 700; border: none; cursor: pointer;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    transition: transform .15s, box-shadow .2s;
+    text-decoration: none; display: inline-block;
+    box-shadow: 0 4px 20px rgba(200,150,62,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,150,62,0.5); }
+  .btn-outline {
+    background: transparent; color: white;
+    padding: 13px 36px; border-radius: 12px;
+    font-size: 1rem; font-weight: 600; border: 1.5px solid rgba(255,255,255,0.3);
+    cursor: pointer; font-family: 'Noto Sans Bengali', sans-serif;
+    transition: background .2s, border-color .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0f1f17;
+    padding: 56px 5% 32px;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-top {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 40px;
+  }
+  .footer-brand .logo-text { color: white; font-size: 1.3rem; }
+  .footer-brand p {
+    margin-top: 14px; font-size: 0.82rem; line-height: 1.75;
+    max-width: 240px;
+  }
+  .footer-col h5 {
+    color: white; font-size: 0.88rem; font-weight: 600;
+    margin-bottom: 16px; letter-spacing: 0.02em;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 9px; }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.45); text-decoration: none;
+    font-size: 0.82rem; transition: color .2s;
+  }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    max-width: 1100px; margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.78rem;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .social-links { display: flex; gap: 12px; }
+  .social-links a {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5); font-size: 0.9rem;
+    text-decoration: none; transition: background .2s, color .2s;
+  }
+  .social-links a:hover { background: var(--gold); color: var(--deep-green); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .filter-row { grid-template-columns: 1fr 1fr; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2)::after, .stat-item:nth-child(4)::after { display: none; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .steps-grid::before { display: none; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card:first-child { grid-row: span 1; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .filter-row { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-icon">☪</div>
+    <div>
+      <span class="logo-text">নিকাহনামা</span>
+      <span class="logo-sub">ISLAMIC MATRIMONY BD</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">হোম</a></li>
+    <li><a href="#">বায়োডাটা খুঁজুন</a></li>
+    <li><a href="#">কিভাবে কাজ করে</a></li>
+    <li><a href="#">আমাদের সম্পর্কে</a></li>
+    <li><a href="#">যোগাযোগ</a></li>
+    <li><a href="#" class="nav-btn">লগইন করুন</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+
+  <div class="hero-badge">
+    ✦ &nbsp;বাংলাদেশের বিশ্বস্ত ইসলামিক ম্যাট্রিমনি প্ল্যাটফর্ম
+  </div>
+
+  <h1>আপনার <em>অর্ধেক দ্বীন</em><br>খুঁজে নিন এখানে</h1>
+
+  <div class="hero-hadith">
+    "যে ব্যক্তি বিয়ে করলো সে তার অর্ধেক দ্বীন পূর্ণ করে ফেললো।
+    বাকি অর্ধেকের জন্য সে আল্লাহকে ভয় করুক।"
+    <cite>— বায়হাকী, শু'আবুল ঈমান</cite>
+  </div>
+
+  <!-- SEARCH CARD -->
+  <div class="search-card">
+    <h3>বায়োডাটা খুঁজুন</h3>
+    <div class="filter-row">
+      <div class="filter-group">
+        <label>আমি খুঁজছি</label>
+        <select>
+          <option>পাত্রের বায়োডাটা</option>
+          <option>পাত্রীর বায়োডাটা</option>
+          <option>সকল</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>বৈবাহিক অবস্থা</label>
+        <select>
+          <option>অবিবাহিত</option>
+          <option>বিধবা / বিপত্নীক</option>
+          <option>ডিভোর্সড</option>
+          <option>সকল</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>বয়সসীমা</label>
+        <select>
+          <option>১৮–২৫ বছর</option>
+          <option>২৬–৩০ বছর</option>
+          <option>৩১–৩৫ বছর</option>
+          <option>৩৫+ বছর</option>
+        </select>
+      </div>
+    </div>
+    <div class="filter-row">
+      <div class="filter-group">
+        <label>জেলা</label>
+        <select>
+          <option>যেকোনো জেলা</option>
+          <option>ঢাকা</option>
+          <option>চট্টগ্রাম</option>
+          <option>রাজশাহী</option>
+          <option>সিলেট</option>
+          <option>বরিশাল</option>
+          <option>খুলনা</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>পেশা</label>
+        <select>
+          <option>যেকোনো পেশা</option>
+          <option>শিক্ষক / মাদ্রাসা</option>
+          <option>ডাক্তার</option>
+          <option>ইঞ্জিনিয়ার</option>
+          <option>ব্যবসায়ী</option>
+          <option>সরকারী চাকরি</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>শিক্ষা</label>
+        <select>
+          <option>যেকোনো</option>
+          <option>কওমি</option>
+          <option>আলিয়া</option>
+          <option>জেনারেল</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      বায়োডাটা খুঁজুন
+    </button>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-icon">👥</div>
+      <span class="stat-num">৫০,০০০+</span>
+      <span class="stat-label">মোট বায়োডাটা</span>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-icon">🧔</div>
+      <span class="stat-num">২৫,০০০+</span>
+      <span class="stat-label">পাত্রের বায়োডাটা</span>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-icon">🧕</div>
+      <span class="stat-num">২৫,০০০+</span>
+      <span class="stat-label">পাত্রীর বায়োডাটা</span>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-icon">💍</div>
+      <span class="stat-num">৩,৫০০+</span>
+      <span class="stat-label">সফল বিবাহ</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-header reveal">
+    <div class="section-tag">প্রক্রিয়া</div>
+    <h2 class="section-title">নিকাহনামা যেভাবে কাজ করে</h2>
+    <p class="section-sub">মাত্র চারটি সহজ ধাপে আপনার জীবনসঙ্গী খুঁজে নিন</p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step reveal">
+      <div class="step-num">১</div>
+      <span class="step-icon">📝</span>
+      <h4>বায়োডাটা তৈরি করুন</h4>
+      <p>বিনামূল্যে আপনার সম্পূর্ণ বায়োডাটা তৈরি করুন। সহজ ও সুন্দর ফর্ম ব্যবহার করে মাত্র কয়েক মিনিটে সম্পন্ন করুন।</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">২</div>
+      <span class="step-icon">🔍</span>
+      <h4>বায়োডাটা খুঁজুন</h4>
+      <p>বয়স, উপজেলা, পেশা, শিক্ষাগত যোগ্যতা সহ বহু ফিল্টার ব্যবহার করে আপনার পছন্দের বায়োডাটা খুঁজুন।</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">৩</div>
+      <span class="step-icon">📞</span>
+      <h4>অভিভাবকের সাথে যোগাযোগ</h4>
+      <p>পছন্দ হলে সরাসরি অভিভাবকের সাথে যোগাযোগ করুন। শরীয়াহ মেনে চলার জন্য অভিভাবকের উপস্থিতি নিশ্চিত করুন।</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">৪</div>
+      <span class="step-icon">🌿</span>
+      <h4>সুন্নতি বিবাহ সম্পন্ন করুন</h4>
+      <p>যথাযথভাবে খোঁজ নিয়ে ইসলামী রীতিতে বিবাহ সম্পন্ন করুন এবং সুখী পরিবার গড়ে তুলুন।</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features-bg">
+  <div class="section-header reveal">
+    <div class="section-tag">বৈশিষ্ট্য</div>
+    <h2 class="section-title">কেন নিকাহনামা বেছে নেবেন?</h2>
+  </div>
+
+  <div class="features-grid" style="max-width:1100px;margin:0 auto;">
+    <div class="feature-card reveal">
+      <span class="feat-icon">☪</span>
+      <h4>সম্পূর্ণ ইসলামিক ও শরীয়াহভিত্তিক</h4>
+      <p>আমাদের প্ল্যাটফর্ম শুরু থেকে শেষ পর্যন্ত ইসলামের মূলনীতি মেনে পরিচালিত। কোনো অশ্লীলতা বা হারাম মেলামেশার সুযোগ নেই।</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">✅</span>
+      <h4>ভেরিফাইড প্রোফাইল</h4>
+      <p>প্রতিটি বায়োডাটা যাচাই করা হয়। ভুয়া বা নকল প্রোফাইলের বিরুদ্ধে আমাদের কঠোর ব্যবস্থা রয়েছে।</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">🔒</span>
+      <h4>গোপনীয়তা সুরক্ষিত</h4>
+      <p>আপনার ব্যক্তিগত তথ্য সম্পূর্ণ নিরাপদ। শুধুমাত্র আপনার অনুমতিতে তথ্য শেয়ার হবে।</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">💰</span>
+      <h4>সম্পূর্ণ বিনামূল্যে</h4>
+      <p>বায়োডাটা তৈরি করা, খোঁজা এবং যোগাযোগ করা — সব কিছুই বিনামূল্যে।</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">📱</span>
+      <h4>সহজ মোবাইল অ্যাপ</h4>
+      <p>Android ও iOS — উভয় প্ল্যাটফর্মে আমাদের অ্যাপ পাওয়া যায়। যেকোনো জায়গা থেকে সহজে ব্যবহার করুন।</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>আজই শুরু করুন আপনার যাত্রা</h2>
+  <p>হাজারো দ্বীনদার পাত্র-পাত্রীর মধ্য থেকে আপনার উপযুক্ত জীবনসঙ্গী খুঁজে নিন — সম্পূর্ণ বিনামূল্যে।</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-primary">বায়োডাটা তৈরি করুন</a>
+    <a href="#" class="btn-outline">বায়োডাটা খুঁজুন</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon">☪</div>
+        <div>
+          <span class="logo-text">নিকাহনামা</span>
+          <span class="logo-sub" style="color:var(--gold);">ISLAMIC MATRIMONY BD</span>
+        </div>
+      </div>
+      <p>বাংলাদেশের সবচেয়ে বিশ্বস্ত ইসলামিক ম্যাট্রিমনিয়াল প্ল্যাটফর্ম। শরীয়াহভিত্তিক জীবনসঙ্গী খোঁজার জন্য সঠিক জায়গা।</p>
+    </div>
+    <div class="footer-col">
+      <h5>সার্ভিস</h5>
+      <ul>
+        <li><a href="#">বায়োডাটা তৈরি</a></li>
+        <li><a href="#">বায়োডাটা খোঁজা</a></li>
+        <li><a href="#">প্রিমিয়াম প্ল্যান</a></li>
+        <li><a href="#">অ্যাপ ডাউনলোড</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>তথ্য</h5>
+      <ul>
+        <li><a href="#">আমাদের সম্পর্কে</a></li>
+        <li><a href="#">কিভাবে কাজ করে</a></li>
+        <li><a href="#">সাফল্যের গল্প</a></li>
+        <li><a href="#">জিজ্ঞাসা (FAQ)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>নিয়মনীতি</h5>
+      <ul>
+        <li><a href="#">গোপনীয়তা নীতি</a></li>
+        <li><a href="#">ব্যবহারের শর্তাবলী</a></li>
+        <li><a href="#">রিফান্ড পলিসি</a></li>
+        <li><a href="#">যোগাযোগ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© ২০২৪–২০২৫ nikahnama.com · সর্বস্বত্ব সংরক্ষিত</span>
+    <div class="social-links">
+      <a href="#" title="Facebook">f</a>
+      <a href="#" title="YouTube">▶</a>
+      <a href="#" title="Instagram">◎</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+        const idx = [...siblings].indexOf(entry.target);
+        entry.target.style.transitionDelay = `${idx * 0.08}s`;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Counter animation
+  function animateCount(el, target, suffix) {
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      const formatted = Math.round(current).toLocaleString('bn-BD');
+      el.textContent = formatted + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 20);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const nums = entry.target.querySelectorAll('.stat-num');
+        const data = [50000, 25000, 25000, 3500];
+        const suf = ['+', '+', '+', '+'];
+        nums.forEach((n, i) => animateCount(n, data[i], suf[i]));
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsEl = document.querySelector('.stats-inner');
+  if (statsEl) statsObserver.observe(statsEl);
+</script>
+</body>
+</html>
